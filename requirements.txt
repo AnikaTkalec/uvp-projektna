@@ -1,0 +1,2 @@
+# PEP8 formatter
+black == 22.6.0
