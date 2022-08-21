@@ -1,0 +1,12 @@
+{
+    "coca-cola": {
+        "nabavna_cena": 60,
+        "prodajna_cena": 230,
+        "tip_pijace": "ba"
+    },
+    "kava z mlekom": {
+        "nabavna_cena": 20,
+        "prodajna_cena": 150,
+        "tip_pijace": "tn"
+    }
+}
