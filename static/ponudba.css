@@ -1,0 +1,77 @@
+.ponudba {
+    width: 70%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    row-gap: 30px;
+    padding: 10px;
+    background: rgb(232, 229, 182);
+    background: linear-gradient(90deg, rgba(232, 229, 182, 0.2556372890953257) 0%, rgba(201, 187, 103, 1) 100%);
+}
+
+.ponudba-tip {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.tip-pijace {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+}
+
+.tip-naslov {
+    font-size: 18px;
+    text-align: center;
+    flex-direction: row;
+    padding-bottom: 10px;
+}
+
+.pijaca form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    row-gap: 5px;
+}
+
+.pijaca form input {
+    border: none;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(209, 198, 138);
+}
+
+.pijaca form button {
+    width: 80%;
+    padding: 2px 0;
+}
+
+.pijaca {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 10px;
+    width: 180px;
+    height: 100px;
+
+    background: #fff;
+    box-shadow: 5px 5px 5px rgba(100, 100, 100, 0.3);
+
+    font-size: 15px;
+}
+
+.pijaca-ime {
+    font-size: 14px;
+    padding: 2px 0;
+}
+
+.pijaca-cena {
+    font-size: 14px;
+}

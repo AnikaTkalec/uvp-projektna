@@ -1,0 +1,42 @@
+.racun {
+    width: 30%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    padding-left: 10px;
+
+    border: black 1px solid;
+    row-gap: 50px;
+}
+
+.racun-artikel {
+    display: flex;
+    flex-direction: row;
+    text-transform: uppercase;
+    column-gap: 10px;
+}
+
+.racun-artikli {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    row-gap: 5px;
+}
+
+.racun-artikli div h1 {
+    padding: 10px 5px;
+}
+
+.racun-znesek {
+    font-size: 24px;
+}
+
+.racun-dno {
+    justify-self: flex-end;
+}
+
+.racun-dno form button {
+    font-size: 18px;
+    padding: 5px;
+}

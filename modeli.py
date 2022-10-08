@@ -1,106 +1,126 @@
 import json
 from os.path import exists
+from datetime import datetime
 
 
-class Natakar:
-
-    stevec = None
-    natakarji = {}
-
-    def __init__(self, ime, priimek, uporabnisko_ime, geslo):
-        self.id = None
-        self.ime = ime
-        self.priimek = priimek
-        self.uporabnisko_ime = uporabnisko_ime
-        self.geslo = geslo
-
-    def shrani(self):
-        if self.id is not None:
-            raise ValueError("self.id ni None, ne morem shraniti")
-        if Natakar.stevec is None:
-            raise ValueError('Natakarji še niso naloženi')
-        self.id = Natakar.stevec
-        Natakar.stevec += 1
-        Natakar.natakarji[self.id] = self
-        with open("stanje/natakarji.json", "w", encoding="UTF-8") as datoteka:
-            natakarji = []
-            for natakar in Natakar.natakarji.values():
-                natakarji.append(
-                    {
-                        "id": natakar.id,
-                        "ime": natakar.ime,
-                        "priimek": natakar.priimek,
-                        "uporabnisko_ime": natakar.uporabnisko_ime,
-                        "geslo": natakar.geslo,
-                    }
-                )
-            datoteka.write(json.dumps(natakarji))
-
-def nalozi_natakarje():
-    if not exists("stanje/natakarji.json"):
-        Natakar.stevec = 1
-    else:
-        with open("stanje/natakarji.json", "r", encoding="UTF-8") as datoteka:
-            natakarji = json.loads(datoteka.read())
-            najvecji_id = 0
-            for natakar in natakarji:
-                Natakar.natakarji[natakar['id']] = Natakar(natakar['ime'], natakar['priimek'], natakar['uporabnisko_ime'], natakar['geslo'])
-                Natakar.natakarji[natakar['id']].id = natakar['id']
-                if natakar['id'] > najvecji_id:
-                    najvecji_id = natakar['id']
-            Natakar.stevec = najvecji_id + 1
-                
 class Pijaca:
-
-    stevec = None
-    pijace = {}
-
-
-    def __init__(self, tip_pijace, ime, kolicina, cena):
-        self.id = None
+    def __init__(self, ime, tip_pijace, nabavna_cena, prodajna_cena):
         self.tip_pijace = tip_pijace
         self.ime = ime
-        self.kolicina = kolicina
-        self.cena = cena
+        self.nabavna_cena = nabavna_cena
+        self.prodajna_cena = prodajna_cena
 
-    
-    def shrani(self):
-        if self.id is not None:
-            raise ValueError("self.id ni None, ne morem shraniti")
-        if Pijaca.stevec is None:
-            raise ValueError('Pijače še niso naložene')
-        self.id = Pijaca.stevec
-        Pijaca.stevec += 1
-        Pijaca.pijace[self.id] = self
-        with open("stanje/pijace.json", "w", encoding="UTF-8") as datoteka:
-            pijace = []
-            for pijaca in Pijaca.pijace.values():
-                pijace.append(
-                    {
-                        "id": pijaca.id,
-                        "tip_pijace": pijaca.tip_pijace,
-                        "ime": pijaca.ime,
-                        "kolicina": pijaca.kolicina,
-                        "cena": pijaca.cena,
-                    }
-                )
-            datoteka.write(json.dumps(pijace))
-
-def nalozi_pijace():
-    if not exists("stanje/pijace.json"):
-        Pijaca.stevec = 1
-    else:
-        with open("stanje/pijace.json", "r", encoding="UTF-8") as datoteka:
-            pijace = json.loads(datoteka.read())
-            najvecji_id = 0
-            for pijaca in pijace:
-                Pijaca.pijace[pijaca['id']] = Natakar(pijaca['tip_pijace'], pijaca['ime'], pijaca['kolicina'], pijaca['cena'])
-                Pijaca.pijace[pijaca['id']].id = pijaca['id']
-                if pijaca['id'] > najvecji_id:
-                    najvecji_id = pijaca['id']
-            Pijaca.stevec = najvecji_id + 1
+    def json(self):
+        return {
+            self.ime: {
+                "tip_pijace": self.tip_pijace,
+                "nabavna_cena": self.nabavna_cena,
+                "prodajna_cena": self.prodajna_cena,
+            }
+        }
 
 
+class Racuni:
+    def __init__(self, stevilka_racuna, artikli, dobicek, datum, ime_lokala):
+        self.stevilka_racuna = stevilka_racuna
+        self.artikli = artikli
+        self.datum = datum
+        self.ime_lokala = ime_lokala
+        self.znesek = sum(
+            [artikel["cena"] * artikel["kolicina"] for artikel in artikli]
+        )
+        self.dobicek = dobicek
+
+    def json(self):
+        return {
+            self.stevilka_racuna: {
+                "artikli": self.artikli,
+                "datum": self.datum,
+                "ime_lokala": self.ime_lokala,
+                "znesek": self.znesek,
+                "dobicek": self.dobicek,
+            }
+        }
 
 
+class Baza:
+    def __init__(self, ime_datoteke_pijace, ime_datoteke_racuni):
+        self.ime_datoteke_pijace = ime_datoteke_pijace
+        self.ime_datoteke_racuni = ime_datoteke_racuni
 
+    def preberi(self, ime_datoteke):
+        if not exists(ime_datoteke):
+            raise Exception
+        else:
+            file = open(ime_datoteke, "r", encoding="UTF-8")
+            res = json.load(file)
+            file.close()
+            return res
+
+    def shrani(self, ime_datoteke, podatki):
+        file = open(ime_datoteke, "w", encoding="UTF-8")
+        json.dump(podatki, file)
+        file.close()
+
+    def preberi_pjace(self):
+        return [
+            Pijaca(
+                ime_pijace,
+                podatki["tip_pijace"],
+                podatki["nabavna_cena"],
+                podatki["prodajna_cena"],
+            )
+            for ime_pijace, podatki in self.preberi(self.ime_datoteke_pijace).items()
+        ]
+
+    def shrani_pijace(self, pijace):
+        pijace1 = {}
+        for pijaca in pijace:
+            pijace1 |= pijaca.json()
+
+        self.shrani(self.ime_datoteke_pijace, pijace1)
+
+    def preberi_racune(self):
+        return [
+            Racuni(
+                stevilka_racuna,
+                podatki["artikli"],
+                podatki["dobicek"],
+                podatki["datum"],
+                podatki["ime_lokala"],
+            )
+            for stevilka_racuna, podatki in self.preberi(
+                self.ime_datoteke_racuni
+            ).items()
+        ]
+
+    def sharni_racune(self, racuni):
+        racuni1 = {}
+        for racun in racuni:
+            racuni1 |= racun.json()
+
+        self.shrani(self.ime_datoteke_racuni, racuni1)
+
+    def shrani_racun(self, racun):
+        racuni = self.preberi_racune()
+        pijace = self.preberi_pjace()
+
+        if len(racuni) == 0:
+            zadnji_id = 1
+        else:
+            zadnji_id = max([int(racun1.stevilka_racuna) for racun1 in racuni])
+            zadnji_id += 1
+
+        datum = datetime.now()
+
+        dobicek = 0
+        for x in racun:
+            for k in pijace:
+                if k.ime == x["artikel"]:
+                    dobicek = (k.prodajna_cena - k.nabavna_cena) * x["kolicina"]
+
+        racuni.append(
+            Racuni(zadnji_id, racun, dobicek, datum.strftime("%d/%m/%Y %H:%M"), "Lokal")
+        )
+
+        self.sharni_racune(racuni)

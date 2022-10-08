@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="racun.css">
+    <link rel="stylesheet" type="text/css" href="ponudba.css">
+    <link rel="stylesheet" type="text/css" href="izpiski.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-vertical">
+        <div class="izpiski-statistika"></div>
+
+        <div class="container-horizontal">
+            <div class="izpiski">
+                <div>
+                    <h1>
+                        Arhiv računov
+                    </h1>
+                </div>
+                <div class="izpiki-vnos izpiski-naslov">
+                    <div class="izpisek-datum">
+                        Datum računa
+                    </div>
+                    <div class="izpisek-znesek">
+                        Znesek
+                    </div>
+                </div>
+
+                % for k, v in izpiski.items():
+                <div class="izpiki-vnos">
+                    <div class="izpisek-datum">
+                        {{v["datum"]}}
+                    </div>
+                    <div class="izpisek-znesek">
+                        {{v["znesek"]}}€
+                    </div>
+                    <form action="izpisek" method="post">
+                        <input hidden name="stevilka-racuna" value="{{k}}" />
+                        <button type="submit">Prikaži več</button>
+                    </form>
+                </div>
+                % end
+            </div>
+
+            <div class="racun">
+                % if len(izbran_izpisek) != 0:
+                <div class="racun-artikli">
+                    <div>
+                        <h1>
+                            RAČUN
+                        </h1>
+                    </div>
+
+                    % for e in izbran_izpisek["artikli"]:
+                    <div class="racun-artikel">
+                        <div class="artikel-ime">
+                            {{e["artikel"]}}
+                        </div>
+                        <div class="artikel-kolicina">
+                            {{e["kolicina"]}}
+                        </div>
+                        <div class="artikel-cena">
+                            {{e["cena"]}}€
+                        </div>
+                    </div>
+                    % end
+                </div>
+
+                <div class="dno">
+                    <div class="znesek">
+                        Znesek: {{izbran_izpisek["znesek"]}}€
+                    </div>
+                    <div class="datum">
+                        Datum: {{izbran_izpisek["datum"]}}
+                    </div>
+                    <div class="dobicek">
+                        Dobiček: {{izbran_izpisek["dobicek"]}}
+                    </div>
+                </div>
+                % end
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

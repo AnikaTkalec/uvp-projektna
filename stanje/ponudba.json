@@ -1,12 +1,177 @@
 {
     "coca-cola": {
-        "nabavna_cena": 60,
-        "prodajna_cena": 230,
-        "tip_pijace": "ba"
+        "tip_pijace": "brezalkoholne pijače",
+        "nabavna_cena": 0.60,
+        "prodajna_cena": 2.30
     },
     "kava z mlekom": {
-        "nabavna_cena": 20,
-        "prodajna_cena": 150,
-        "tip_pijace": "tn"
+        "tip_pijace": "topli napitki",
+        "nabavna_cena": 0.20,
+        "prodajna_cena": 1.50
+    },
+    "fanta": {
+        "tip_pijace": "brezalkoholne pijače",
+        "nabavna_cena": 0.60,
+        "prodajna_cena": 2.30
+    },
+    "union": {
+        "tip_pijace": "piva",
+        "nabavna_cena": 1.09,
+        "prodajna_cena": 2.80
+    },
+    "schwepes": {
+        "tip_pijace": "brezalkoholne pijače",
+        "nabavna_cena": 0.60,
+        "prodajna_cena": 2.30
+    },
+    "cockta": {
+        "tip_pijace": "brezalkoholne pijače",
+        "nabavna_cena": 0.55,
+        "prodajna_cena": 2.30
+    },
+    "sok steklenička": {
+        "tip_pijace": "brezalkoholne pijače",
+        "nabavna_cena": 0.50,
+        "prodajna_cena": 2.20
+    },
+    "voda z okusom": {
+        "tip_pijace": "brezalkoholne pijače",
+        "nabavna_cena": 0.40,
+        "prodajna_cena": 2.00
+    },
+    "laško": {
+        "tip_pijace": "piva",
+        "nabavna_cena": 1.09,
+        "prodajna_cena": 2.80
+    },
+    "heiniken": {
+        "tip_pijace": "piva",
+        "nabavna_cena": 1.50,
+        "prodajna_cena": 3.50
+    },
+    "radler": {
+        "tip_pijace": "piva",
+        "nabavna_cena": 90,
+        "prodajna_cena": 2.50
+    },
+    "corona": {
+        "tip_pijace": "piva",
+        "nabavna_cena": 1.50,
+        "prodajna_cena": 3.50
+    },
+    "kava s smetano": {
+        "tip_pijace": "topli napitki",
+        "nabavna_cena": 0.20,
+        "prodajna_cena": 1.50
+    },
+    "kava espresso": {
+        "tip_pijace": "topli napitki",
+        "nabavna_cena": 0.15,
+        "prodajna_cena": 1.30
+    },
+    "bela kava": {
+        "tip_pijace": "topli napitki",
+        "nabavna_cena": 0.25,
+        "prodajna_cena": 2.00
+    },
+    "cappuccino": {
+        "tip_pijace": "topli napitki",
+        "nabavna_cena": 0.20,
+        "prodajna_cena": 1.50
+    },
+    "haložan": {
+        "tip_pijace": "vina",
+        "nabavna_cena": 0.50,
+        "prodajna_cena": 1.50
+    },
+    "cviček": {
+        "tip_pijace": "vina",
+        "nabavna_cena": 0.50,
+        "prodajna_cena": 1.50
+    },
+    "refošk": {
+        "tip_pijace": "vina",
+        "nabavna_cena": 0.60,
+        "prodajna_cena": 1.80
+    },
+    "malvazija": {
+        "tip_pijace": "vina",
+        "nabavna_cena": 0.40,
+        "prodajna_cena": 1.30
+    },
+    "belokranjec": {
+        "tip_pijace": "vina",
+        "nabavna_cena": 0.50,
+        "prodajna_cena": 1.50
+    },
+    "jeger": {
+        "tip_pijace": "alkoholne pijače",
+        "nabavna_cena": 0.50,
+        "prodajna_cena": 4.00
+    },
+    "viljamovka": {
+        "tip_pijace": "alkoholne pijače",
+        "nabavna_cena": 0.45,
+        "prodajna_cena": 3.50
+    },
+    "jack": {
+        "tip_pijace": "alkoholne pijače",
+        "nabavna_cena": 0.53,
+        "prodajna_cena": 4.00
+    },
+    "travarica": {
+        "tip_pijace": "alkoholne pijače",
+        "nabavna_cena": 0.35,
+        "prodajna_cena": 3.00
+    },
+    "pelinkovec": {
+        "tip_pijace": "alkoholne pijače",
+        "nabavna_cena": 0.29,
+        "prodajna_cena": 2.50
+    },
+    "stock": {
+        "tip_pijace": "alkoholne pijače",
+        "nabavna_cena": 0.46,
+        "prodajna_cena": 3.50
+    },
+    "limonada z jagodo": {
+        "tip_pijace": "hišne limonade",
+        "nabavna_cena": 0.30,
+        "prodajna_cena": 3.50
+    },
+    "limonada z malino": {
+        "tip_pijace": "hišne limonade",
+        "nabavna_cena": 0.30,
+        "prodajna_cena": 3.50
+    },
+    "limonada z meto": {
+        "tip_pijace": "hišne limonade",
+        "nabavna_cena": 0.30,
+        "prodajna_cena": 3.50
+    },
+    "limonada s pasijonko": {
+        "tip_pijace": "hišne limonade",
+        "nabavna_cena": 0.30,
+        "prodajna_cena": 3.50
+    },
+    "ledeni čaj z jagodo": {
+        "tip_pijace": "hišni ledeni čaji",
+        "nabavna_cena": 0.30,
+        "prodajna_cena": 3.50
+    },
+    "ledeni čaj z malino": {
+        "tip_pijace": "hišni ledeni čaji",
+        "nabavna_cena": 0.30,
+        "prodajna_cena": 3.50
+    },
+    "ledeni čaj z meto": {
+        "tip_pijace": "hišni ledeni čaji",
+        "nabavna_cena": 0.30,
+        "prodajna_cena": 3.50
+    },
+    "ledeni čaj s pasijonko": {
+        "tip_pijace": "hišni ledeni čaji",
+        "nabavna_cena": 0.30,
+        "prodajna_cena": 3.50
     }
 }

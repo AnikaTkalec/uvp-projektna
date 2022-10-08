@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="racun.css">
+    <link rel="stylesheet" type="text/css" href="ponudba.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;400&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-horizontal">
+        <div class="racun">
+            <div class="racun-artikli">
+                <div>
+                    <h1>
+                        RAČUN
+                    </h1>
+                </div>
+
+                % for pijaca in racun_artikli:
+                <div class="racun-artikel">
+                    <div class="artikel-ime">
+                        {{pijaca["artikel"]}}
+                    </div>
+                    <div class="artikel-kolicina">
+                        {{pijaca["kolicina"]}}
+                    </div>
+                    <div class="artikel-cena">
+                        {{pijaca["cena"]}}€
+                    </div>
+                </div>
+                % end
+            </div>
+
+            <div class="dno">
+                <div class="znesek">
+                    Znesek: {{racun_znesek}}€
+                </div>
+                <form action="/zakljucek" method="post">
+                    <button type="submit">Zaključi</button>
+                </form>
+                <div>
+                    <a href="/izpiski">
+                        <button>
+                            Prikaži račune
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="ponudba">
+            % for tip in tipi_pijac:
+            <div class="ponudba-tip">
+                <div class="tip-naslov">
+                    <div>{{tip}}</div>
+                </div>
+
+                <div class="tip-pijace">
+                    % for ime, podatki in pijace.items():
+                    % if podatki["tip_pijace"] == tip:
+                    <div class="pijaca">
+                        <form action="/dodaj" method="post">
+                            <div class="pijaca-ime">{{ime}}</div>
+                            <div class="pijaca-cena">{{podatki['prodajna_cena']}}</div>
+                            <input hidden type="text" name="pijaca" value="{{ime}}" />
+                            <input hidden type="text" name="cena" value="{{podatki['prodajna_cena']}}€" />
+                            <button type="submit">Dodaj</button>
+                        </form>
+                    </div>
+                    % end
+                    % end
+                </div>
+            </div>
+            % end
+        </div>
+    </div>
+</body>
+
+</html>
