@@ -94,7 +94,7 @@ class Baza:
             ).items()
         ]
 
-    def sharni_racune(self, racuni):
+    def shrani_racune(self, racuni):
         racuni1 = {}
         for racun in racuni:
             racuni1 |= racun.json()
@@ -123,4 +123,4 @@ class Baza:
             Racuni(zadnji_id, racun, dobicek, datum.strftime("%d/%m/%Y %H:%M"), "Lokal")
         )
 
-        self.sharni_racune(racuni)
+        self.shrani_racune(racuni)

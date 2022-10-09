@@ -29,7 +29,7 @@
         "nabavna_cena": 0.55,
         "prodajna_cena": 2.30
     },
-    "sok steklenička": {
+    "sok steklenicka": {
         "tip_pijace": "brezalkoholne pijače",
         "nabavna_cena": 0.50,
         "prodajna_cena": 2.20
@@ -39,7 +39,7 @@
         "nabavna_cena": 0.40,
         "prodajna_cena": 2.00
     },
-    "laško": {
+    "lasko": {
         "tip_pijace": "piva",
         "nabavna_cena": 1.09,
         "prodajna_cena": 2.80
@@ -79,17 +79,17 @@
         "nabavna_cena": 0.20,
         "prodajna_cena": 1.50
     },
-    "haložan": {
+    "halozan": {
         "tip_pijace": "vina",
         "nabavna_cena": 0.50,
         "prodajna_cena": 1.50
     },
-    "cviček": {
+    "cvicek": {
         "tip_pijace": "vina",
         "nabavna_cena": 0.50,
         "prodajna_cena": 1.50
     },
-    "refošk": {
+    "refosk": {
         "tip_pijace": "vina",
         "nabavna_cena": 0.60,
         "prodajna_cena": 1.80
@@ -154,22 +154,22 @@
         "nabavna_cena": 0.30,
         "prodajna_cena": 3.50
     },
-    "ledeni čaj z jagodo": {
+    "ledeni caj z jagodo": {
         "tip_pijace": "hišni ledeni čaji",
         "nabavna_cena": 0.30,
         "prodajna_cena": 3.50
     },
-    "ledeni čaj z malino": {
+    "ledeni caj z malino": {
         "tip_pijace": "hišni ledeni čaji",
         "nabavna_cena": 0.30,
         "prodajna_cena": 3.50
     },
-    "ledeni čaj z meto": {
+    "ledeni caj z meto": {
         "tip_pijace": "hišni ledeni čaji",
         "nabavna_cena": 0.30,
         "prodajna_cena": 3.50
     },
-    "ledeni čaj s pasijonko": {
+    "ledeni caj s pasijonko": {
         "tip_pijace": "hišni ledeni čaji",
         "nabavna_cena": 0.30,
         "prodajna_cena": 3.50
