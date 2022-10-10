@@ -117,7 +117,7 @@ class Baza:
         for x in racun:
             for k in pijace:
                 if k.ime == x["artikel"]:
-                    dobicek = (k.prodajna_cena - k.nabavna_cena) * x["kolicina"]
+                    dobicek += (k.prodajna_cena - k.nabavna_cena) * x["kolicina"]
 
         racuni.append(
             Racuni(zadnji_id, racun, dobicek, datum.strftime("%d/%m/%Y %H:%M"), "Lokal")
